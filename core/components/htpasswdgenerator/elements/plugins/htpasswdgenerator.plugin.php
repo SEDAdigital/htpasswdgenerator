@@ -49,7 +49,7 @@ foreach ($resources as $r) {
 	
 	$htpasswd_users = $r->getTVValue($usersTv);
 	if (empty($htpasswd_users)) {
-		$htaccess .= "\n\n# resource ".$r->get('id'). "\n<FilesMatch \"".$url."\">\nRequire valid-user\n</FilesMatch>";
+		$htaccess .= "\n\n# resource ".$r->get('id'). "\n<Files \"".$url."\">\nRequire valid-user\n</Files>";
 	};
 	
 	$htpasswd_users = preg_split('/$\R?^/m', $htpasswd_users);
@@ -60,7 +60,7 @@ foreach ($resources as $r) {
 		$valid_usernames[] = $valid_users[$id]['username'];
 	}
 	
-	$htaccess .= "\n\n# resource ".$r->get('id'). "\n<FilesMatch \"".$url."\">\nRequire user ". implode(" ",$valid_usernames) ."\n</FilesMatch>";
+	$htaccess .= "\n\n# resource ".$r->get('id'). "\n<Files \"".$url."\">\nRequire user ". implode(" ",$valid_usernames) ."\n</Files>";
 
 }
 $htaccess .= "\n".$last_line;
