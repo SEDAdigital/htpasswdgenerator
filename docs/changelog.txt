@@ -1,0 +1,8 @@
+Changelog for htpasswdgenerator
+
+htpasswdgenerator 1.0.0-pl
+-------------------
+Initial Version
+
+
+
